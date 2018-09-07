@@ -5,6 +5,7 @@
   
 </style>
 <script>
+    var names = {"red":"Forms", "blue":"EntryForm","yellow":"FormDetails","green":"JSON"}
     function expand() {
         document.getElementById("div1").style.visibility = "visible";
      
@@ -14,9 +15,30 @@
        
     }
     function hover(ele) {
+        console.log(ele.tagName);
+        if(ele.tagName == "A") {
+            if(ele.innerHTML == names[ele.id]){
+                ele.innerHTML = "*" + ele.innerHTML;
+            }
+        }
+        else if(ele.tagName == "LI") {
+            if(document.getElementById("a"+ele.id).innerHTML == names[ele.id]){
+                document.getElementById("a"+ele.id).innerHTML = "*"+document.getElementById("a"+ele.id).innerHTML;
+            }
+        }
         ele.style.backgroundColor = "grey";
     }
     function hoverout(ele) {
+        if(ele.tagName == "A") {
+            if(ele.innerHTML != names[ele.id]){
+                ele.innerHTML = names[ele.id];
+            }
+        }
+        else if(ele.tagName == "LI") {
+            if(document.getElementById("a"+ele.id).innerHTML != names[ele.id]) {
+                document.getElementById("a"+ele.id).innerHTML = names[ele.id];
+            }
+        }
         ele.style.backgroundColor = "white";
     }
 
@@ -26,16 +48,16 @@
 <body>
     <h1>
         <ul onmouseout=contract() style="list-style: none ;width:200px">
-            <li id="red" onmouseleave=hoverout(this) onmouseover=expand();hover(this);><a href=#>Forms</a></li>
+            <li id="red" onmouseleave=hoverout(this) onmouseover=expand();hover(this);><a mouseoever=hover(this) id="ared" href=#>Forms</a></li>
             <div onmouseover=expand(); id="div1" style="visibility:hidden">
-                <li id="blue" onmouseleave=hoverout(this) onmouseover=hover(this); class="list"><a href=EntryForm.html>EntryForm</a></li>
-                <li id="yellow" onmouseleave=hoverout(this) onmouseover=hover(this) ; class="list"><a href=FormData.html>FormDetails</a></li>
+                <li id="blue" onmouseleave=hoverout(this) onmouseover=hover(this); class="list"><a id="ablue" href=EntryForm.html>EntryForm</a></li>
+                <li id="yellow" onmouseleave=hoverout(this) onmouseover=hover(this) ; class="list"><a id="ayellow" href=FormData.html>FormDetails</a></li>
         </ul>
         </div>
         
     </h1>
     <h1 style="margin-top:-145px;margin-left:300px">
-        <a onmouseover=hover(this) onmouseleave=hoverout(this) href=trainers.html>JSON</a>
+        <a id = "green" onmouseover=hover(this) onmouseleave=hoverout(this) href=trainers.html>JSON</a>
     </h1>
 
     

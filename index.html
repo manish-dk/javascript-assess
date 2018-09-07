@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Main page</title>
+<style>
+  
+</style>
+<script>
+    function expand() {
+        document.getElementById("div1").style.visibility = "visible";
+     
+    }
+    function contract() {
+        document.getElementById("div1").style.visibility = "hidden";
+       
+    }
+    function expand2() {
+        document.getElementById("div2").style.visibility = "visible";
+       
+    }
+    function contract2() {
+        document.getElementById("div2").style.visibility = "hidden";
+        
+    }
+    function hover(ele) {
+        ele.style.backgroundColor = "grey";
+    }
+    function hoverout(ele) {
+        ele.style.backgroundColor = "white";
+    }
+
+</script>
+</head>
+
+<body>
+    <h1>
+        <ul onmouseout=contract() style="list-style: none ;width:200px">
+            <li id="red" onmouseleave=hoverout(this) onmouseover=expand();hover(this);><a href=#>Forms</a></li>
+            <div onmouseover=expand(); id="div1" style="visibility:hidden">
+                <li id="blue" onmouseleave=hoverout(this) onmouseover=hover(this); class="list"><a href=EntryForm.html>EntryForm</a></li>
+                <li id="yellow" onmouseleave=hoverout(this) onmouseover=hover(this) ; class="list"><a href=FormData.html>FormDetails</a></li>
+        </ul>
+        </div>
+        
+    </h1>
+    <h1 style="margin-top:-145px;margin-left:300px">
+        <a onmouseover=hover(this) onmouseleave=hoverout(this) href=trainers.html>JSON</a>
+    </h1>
+
+    
+</body>
+
+</html>

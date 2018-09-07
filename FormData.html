@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    
+<body>
+    <p>The inputted information on the previous page was:</p>
+    <p id='name'>Name:</p>
+    <p id='dob'>Date of Birth: </p>
+    <p id='addr'>Address: </p>
+    <p id='post'>PostCode: </p>
+    <p id='email'>Email: </p>
+
+    <script>
+        document.getElementById('name').innerHTML+=" " +localStorage.getItem('name');
+        document.getElementById('dob').innerHTML+=" " +localStorage.getItem('dob');
+        document.getElementById('addr').innerHTML+=" " +localStorage.getItem('addr');
+        document.getElementById('post').innerHTML+=" " +localStorage.getItem('post');
+        document.getElementById('email').innerHTML+=" " +localStorage.getItem('email');
+</script>
+    </body>

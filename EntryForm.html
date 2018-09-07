@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form</title>
+    <script>
+        function validate() {
+            var test = true;
+            var name = document.getElementById('name');
+            var dob = document.getElementById('dob');
+            var addr = document.getElementById('addr');
+            var post = document.getElementById('post');
+            var email = document.getElementById('email');
+            var alphaExp = /^[a-zA-Z]+$/;
+            var dobExp = /^(\d{1,2}\/\d{1,2}\/\d{4})$/;
+            var addrExp = /^([A-Za-z0-9-]+)$/;
+            var postExp = /^([A-Za-z0-9-]+.{0,10})$/;
+            var emailExp = /^(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})$/;
+            if (name.value == "") {
+                document.getElementById('s1').innerHTML=" Invalid Name";
+                test=false;
+            }
+            if (!(name.value.match(alphaExp))) {
+                document.getElementById('s1').innerHTML=" Invalid Name";
+                test= false;
+            }
+            if (dob.value == "") {
+                document.getElementById('s2').innerHTML=" Invalid Date";
+                test= false;
+            }
+            if (!(dob.value.match(dobExp))) {
+                document.getElementById('s2').innerHTML=" Invalid Date";
+                test= false;
+            }
+            if (addr.value == "") {
+                document.getElementById('s3').innerHTML=" Invalid Address";
+                test= false;
+            }
+            if (!(addr.value.match(addrExp))) {
+                document.getElementById('s3').innerHTML=" Invalid Address";
+                test= false;
+            }
+            if (post.value == "") {
+                document.getElementById('s4').innerHTML=" Invalid PostCode";
+                test= false;
+            }
+            if (!(post.value.match(postExp))) {
+                document.getElementById('s4').innerHTML=" Invalid PostCode";
+                test= false;
+            }
+            if (email.value == "") {
+                document.getElementById('s5').innerHTML=" Invalid Email";
+                test= false;
+            }
+            if (!(email.value.match(emailExp))) {
+                document.getElementById('s5').innerHTML=" Invalid Email";
+                test= false;
+            }
+            localStorage.setItem('name',document.getElementById('name').value);
+            localStorage.setItem('dob',document.getElementById('dob').value);
+            localStorage.setItem('addr',document.getElementById('addr').value);
+            localStorage.setItem('post',document.getElementById('post').value);
+            localStorage.setItem('email',document.getElementById('email').value);
+            return test;
+        }
+    </script>
+</head>
+
+<body>
+    <form id='f1' onsubmit="return validate()" action=FormData.html>
+        Name: <input id='name' type='text' /><span id='s1'></span></br>
+        Date of Birth: <input id='dob' type='text' /><span id='s2'></span></br>
+        Address: <input id='addr' type='text' /><span id='s3'></span></br>
+        PostCode: <input id='post' type='text' /><span id='s4'></span></br>
+        Email: <input id='email' type='text' /><span id='s5'></span></br>
+        <button type='submit' value='submit'>Submit</button>
+           </form>
+        <p id='p1'></p>
+
+</body>
+
+</html>

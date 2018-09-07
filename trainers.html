@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+    </style>
+</head>
+<body>
+
+    <script src="data.js"></script>
+<script>
+      
+        function name() {
+            var para = document.getElementById("para");
+            para.innerHTML = data['squadName'];
+        }
+        function show(val) {
+            if(val=="name") {
+                name();
+            }
+        }
+        function heroInfo(heroName) {
+            var para = document.getElementById("para");
+            para.innerHTML = "";
+            for(var i=0;i<data['members'].length;i++) {
+                if(data['members'][i]['name']==heroName){
+                    console.log("test");
+                    for(attribute in data['members'][i]) {
+                        para.innerHTML +=attribute+": " + data['members'][i][attribute]+"</br>";
+                    }
+                }
+            }
+        }
+        function trainerBySkill(skillSearch) {
+            var para = document.getElementById("para2");
+            para.innerHTML = "";
+            for(var i=0;i<data['members'].length;i++) {
+                // console.log(data['members'][i]);
+                for(var j=0;j<data['members'][i]['skills'].length;j++) {
+                    console.log(skillSearch);
+                    console.log(data['members'][i]['skills'][j]);
+                    if(data['members'][i]['skills'][j]==skillSearch) {
+                        console.log(skillSearch);
+                        for(attribute in data['members'][i]) {
+                            para.innerHTML +=attribute+": " + data['members'][i][attribute]+"</br>";
+                        }
+                    }
+                }
+                    
+                }
+            
+        }
+
+
+</script>
+    <h1>Trainer Search</h1>
+  <input id="box" type="text"/> 
+    <input type="button" onclick="heroInfo(document.getElementById('box').value)" value="Search by name"/>
+    <p id="para"></p></br>
+    <input id="box2" type="text"/> 
+    <input type="button" onclick="trainerBySkill(document.getElementById('box2').value)" value="Search by skill"/>
+    <p id="para2"></p>
+</body>
+</html>
